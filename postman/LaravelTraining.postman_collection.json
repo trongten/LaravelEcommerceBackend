@@ -1,0 +1,608 @@
+{
+	"info": {
+		"_postman_id": "6d7c01e5-95a1-4cfd-9a59-035de35203a8",
+		"name": "LaravelTraining",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20565497"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Sign Up",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"name\":\"trong24\",\n    \"email\":\"trongphan5301@gmail.com\",\n    \"password\":\"abc123\",\n    \"password_confirmation\":\"abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"email\":\"trongphan5301@gmail.com\",\n    \"password\":\"abc123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Get Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\":1,\n    \"per_page\":2,\n    \"sort\":\"name_asc\",\n    \"name\":\"book\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/products?name=qJdQgdxi9gbby6YNiRhS",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "qJdQgdxi9gbby6YNiRhS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/products/91",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"products",
+								"91"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Thien Long 2\",\n    \"price\" : \"100000\",\n    \"image\" : \"https://product.hstatic.net/1000362139/product/but_bi_tritouch1_50916816f20045c7b6076f9a5d0a82e3.jpg\",\n    \"count\" : 10,\n    \"description\" : \"Bút Bi Double A Tritouch DBP-107 0.7mm Tay cầm có đệm cao su chống trơn trượt giúp cho việc cầm bút chắc tay\",\n    \"category_id\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/products/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Thien Long\",\n    \"price\" : \"200000\",\n    \"image\" : \"https://product.hstatic.net/1000362139/product/but_bi_tritouch1_50916816f20045c7b6076f9a5d0a82e3.jpg\",\n    \"count\" : 20,\n    \"description\" : \"Bút Bi Double A Tritouch DBP-107 0.7mm Tay cầm có đệm cao su chống trơn trượt giúp cho việc cầm bút chắc tay\",\n    \"category_id\" : 9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "Get Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\":1,\n    \"per_page\":2,\n    \"sort\":\"name_asc\",\n    \"name\":\"book\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/product_categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"product_categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"notebook\",\n    \"description\":\"description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/product_categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"product_categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"book2\",\n    \"description\":\"boook\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/product_categories/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"product_categories",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/product_categories/7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"product_categories",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "Get Orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\":1,\n    \"per_page\":1,\n    \"sort\":\"create_at_asc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"details\":[\n        {\n            \"product_id\":5,\n            \"count\":1\n        },{\n            \"product_id\":6,\n            \"count\":1\n        },{\n            \"product_id\":1,\n            \"count\":1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"details\":[\n        {   \n            \"product_id\":5,\n            \"count\":1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/orders/20 ",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"orders",
+								"20 "
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/orders/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"orders",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update State Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/admin/orders/state/7",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"orders",
+								"state",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
